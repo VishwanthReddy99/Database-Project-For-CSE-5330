@@ -1,0 +1,275 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<style>
+	#newrecord {
+			max-width: 512px;
+    		margin: 0px auto 28px auto;
+    		padding: 50px 50px 50px 50px;
+    		width: 314px;
+    		box-shadow: 0px 4px 24px rgb(0 0 0 / 10%);
+    		border-radius: 2px;
+    		text-align: left;
+			background-color: aliceblue;
+		
+      	}
+		  
+ * {
+	box-sizing: border-box;
+}
+.heading{
+	background: #e7f3f1;
+	padding: 1em;
+	justify-content: center;
+}
+.page-contain {
+	display: flex;
+	min-height: 50vh;
+	align-items: center;
+	justify-content: center;
+	background: #e7f3f1;
+	padding: 1em;
+	font-family: 'Open Sans', sans-serif;
+}
+.data-card {
+	display: block;
+	flex-direction: column;
+	max-width: 13.75em;
+	height: 20em;
+	overflow: hidden;
+	border-radius: 0.5em;
+	text-decoration: none;
+	background: white;
+	margin: 1em;
+	padding: 2.5em;
+	box-shadow: 0 1.5em 2.5em -0.5em rgba(0, 0, 0, .1);
+	transition: transform 0.45s ease, background 0.45s ease;
+}
+.data-card h3 {
+	color: #2e3c40;
+	font-size: 3.5em;
+	font-weight: 600;
+	line-height: 1;
+	padding-bottom: 0.5em;
+	margin: 0 0 0.142857143em;
+	border-bottom: 2px solid #753bbd;
+	transition: color 0.45s ease, border 0.45s ease;
+}
+.heading h3
+{
+	color: #753bbd;
+	text-transform: uppercase;
+	font-size: 1.125em;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: 0.1em;
+	margin: 0 0 1.777777778em;
+	transition: color 0.45s ease;
+}
+.data-card h4 {
+	color: #627084;
+	text-transform: uppercase;
+	font-size: 1.125em;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: 0.1em;
+	margin: 0 0 1.777777778em;
+	transition: color 0.45s ease;
+}
+.data-card p {
+	opacity: 0;
+	color: #fff;
+	font-weight: 600;
+	line-height: 1.8;
+	margin: 0 0 1.25em;
+	transform: translateY(-1em);
+	transition: opacity 0.45s ease, transform 0.5s ease;
+}
+.data-card .link-text {
+	display: block;
+	color: #753bbd;
+	font-size: 1.125em;
+	font-weight: 600;
+	line-height: 1.2;
+	margin: auto 0 0;
+	transition: color 0.45s ease;
+}
+.data-card .link-text svg {
+	margin-left: 0.5em;
+	transition: transform 0.6s ease;
+}
+.data-card .link-text svg path {
+	transition: fill 0.45s ease;
+}
+.data-card:hover {
+	background: #753bbd;
+	transform: scale(1.02);
+}
+.data-card:hover h3 {
+	color: #fff;
+	border-bottom-color: #a754c4;
+}
+.data-card:hover h4 {
+	color: #fff;
+}
+.data-card:hover p {
+	opacity: 1;
+	transform: none;
+}
+.data-card:hover .link-text {
+	color: #fff;
+}
+.data-card:hover .link-text svg {
+	animation: point 1.25s infinite alternate;
+}
+.data-card:hover .link-text svg path {
+	fill: #fff;
+}
+@keyframes point {
+	0% {
+		transform: translateX(0);
+   }
+	100% {
+		transform: translateX(0.125em);
+   }
+}
+
+		  
+</style>
+<section class="heading">
+	<center><h3>Insert records into database</h3></center>
+</section>
+<section class="page-contain">
+	
+	<a href="/insert_User_Accounts" class="data-card">
+	  <h4>User Account</h4>
+	  <p>Click here to insert data into User Accounts </p>
+	  <span class="link-text">
+		  Insert data into User Accounts	
+
+	<svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+  </svg>
+	  </span>
+	</a>
+	<a href="/insert_User_Roles" class="data-card">
+		<h4>User Roles</h4>
+		<p>Click here to insert data into User Roles </p>
+		<span class="link-text">
+			Insert data into User Roles	
+  
+	  <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+	</svg>
+		</span>
+	  </a>
+	<a href="/insert_Tables" class="data-card">
+		<h4>TABLEs Table</h4>
+		<p>Click here to insert data into TABLEs.</p>
+		<span class="link-text">
+		  Insert data into TABLEs	
+		  <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+	</svg>
+		</span>
+	  </a>
+	  <a href="/insert_Account_Privileges" class="data-card">
+		<h4>ACCOUNT PRIVILEGEs</h4>
+		<p>Click here to insert data into  PRIVILEGEs.</p>
+		<span class="link-text">
+		  Insert data into ACCOUNT PRIVILEGEs	
+		  <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+	</svg>
+	
+		</span>
+	  </a>
+
+	  <a href="/insert_Relation_Privileges" class="data-card">
+		<h4>RELATION PRIVILEGEs</h4>
+		<p>Click here to insert data into  PRIVILEGEs.</p>
+		<span class="link-text">
+		  Insert data into RELATION	PRIVILEGEs
+		  <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+	</svg>
+	
+		</span>
+	  </a>
+  </section>
+  <section class="heading">
+	<center><h3>Relate Data</h3></center>
+</section>
+
+	<section class="page-contain">
+	
+		<a href="/Relate_user_accountAndUser_role" class="data-card">
+		  <h4>User Account and User Role</h4>
+		  <span class="link-text">
+			 Relate User Account and User Role 
+	
+		<svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+	  </svg>
+		  </span>
+		</a>
+		<a href="/Relate_account_privilegeAndUser_role" class="data-card">
+			<h4>Account Prvilege and User Role </h4>
+			<span class="link-text">
+				Relate Account Prvilege and User Role
+	  
+		  <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+		</svg>
+			</span>
+		  </a>
+		<a href="/Relate_relation_privilegeAndUser_roleAndTable" class="data-card">
+			<h4>Relation Privilege,User Role and Table</h4>
+			<span class="link-text">
+			  Relate Relation Privilege,User Role and Table
+			  <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+		</svg>
+			</span>
+		  </a>
+	
+	  </section>
+
+	  <section class="heading">
+		<center><h3>Retrive Information</h3></center>
+	</section>  
+	<section class="page-contain">
+
+
+	
+		<a href="/user_accountAndPrivilegeRetrive" class="data-card">
+		  <h4>Retrive all Privileges with a Specific User</h4>
+		  <span class="link-text">
+	Click here
+		<svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+	  </svg>
+		  </span>
+		</a>
+		<a href="/user_roleAndPrivilegeRetrive" class="data-card">
+			<h4>Retrive all Privileges with a Specific Roles </h4>
+			<span class="link-text">
+				Click here
+
+		  <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+		</svg>
+			</span>
+		  </a>
+		<a href="/privilegeToUser_accountRetrive" class="data-card">
+			<h4>Check the PRIVILEGEs granted to USER_ACCOUNTs</h4>
+			<span class="link-text">
+Click here			  <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+		</svg>
+			</span>
+		  </a>
+	
+	  </section>
+	
+{% endblock %}

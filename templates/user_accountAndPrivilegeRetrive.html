@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/print.css') }}">
+
+
+{% endblock %}
+<style>
+	body {
+		background:aliceblue;	font: 400 14px 'Calibri', 'Arial',white;
+	}
+</style>
+	<h3>Retrive PRIVILEGEs associated with USER_ACCOUNTs</h3>
+	<br>
+	<br>
+	<form action="/user_accountAndPrivilegeData" method="post">
+        <label>User Account: </label>
+		<select name = "userAccount">
+			{% for user_account in user_accounts %}
+				<option value="'{{ user_account[0] }}'">{{ user_account[0] }}</option>
+			{% endfor %}
+		</select>
+		<br>
+		<br>
+		<input type="submit" value="Submit">
+	</form>
+	<br>
+	<br>
+	{% if accountPrivilegeData or relationPrivilegeData %}
+		<h4> ACCOUNT_PRIVILEGEs </h4>
+		{% if accountPrivilegeData %}
+		  	<table  class="table" >
+				<tr>
+					{% for i in range (accountPrivilegeData[0]|length) %}
+						<th>{{columnNames[i][1]}}</th>
+					{% endfor %}
+				</tr>
+				{% for j in accountPrivilegeData %}
+	  				<tr> 
+						{% for k in j %}
+							<td >{{ k }}</td>
+						{% endfor %}
+	  				</tr>
+				{% endfor %}
+	 		</table>
+			<br>
+		{%else %}
+			<h5> No Account privileges associated with this User Account.</h5>
+			<br>
+		{% endif %}
+		<h4> Relation_PRIVILEGEs </h4>
+		{% if relationPrivilegeData %}
+		  	<table class="table" >
+				<tr>
+					{% for i in range (relationPrivilegeData[0]|length) %}
+						<th >{{columnNames[i][1]}}</th>
+					{% endfor %}
+				</tr>
+				{% for j in relationPrivilegeData %}
+	  				<tr> 
+						{% for k in j %}
+							<td >{{ k }}</td>
+						{% endfor %}
+	  				</tr>
+				{% endfor %}
+	 		</table>
+			<br>
+		{%else %}
+			<h5> No Relation privileges associated with this User Account.</h5>
+			<br>
+		{% endif %}
+	{% endif %}
+	<br>
+  	<br>
+  	<button onclick="location.href = '/';">Go back</button>
+  	<br>
+  	<br>
+
+	
+{% endblock %}

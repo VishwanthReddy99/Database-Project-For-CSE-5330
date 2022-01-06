@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/print.css') }}">
+
+
+{% endblock %}
+{% block app_content %}
+<div >
+	<center><h1>Displaying the  Data</h1></center>
+	{% if data %}
+		{% for i in data %}
+		
+			<br>
+			<center><h2> Table Name : {{ tableNames[i][0] }} </h2></center>
+			{% if data[i] %}
+	  			<table>
+					<tr>
+		  				{% for j in range (data[i][0]|length) %}
+							<th >{{columnNames[i][j][1]}}</th>
+		  				{% endfor %}
+					</tr>
+					{% for j in data[i] %}
+		  				<tr> 
+							{% for k in j %}
+								<td >{{ k }}</td>
+							{% endfor %}
+		  				</tr>
+					{% endfor %}
+	  			</table>
+			{% else %}
+				<h5>No data found.</h5>
+			{% endif %}
+			<br>
+		{% endfor %}
+	{% endif %}
+	
+
+	<br>
+	<br>
+  	<button onclick="location.href = '/';">Go back</button>
+  	<br>
+  	<br>
+</div>
+	
+{% endblock %}

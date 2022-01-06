@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/print.css') }}">
+
+
+{% endblock %}
+<style>
+	body {
+		background:aliceblue;	font: 400 14px 'Calibri', 'Arial',white;
+	}
+</style>
+<div class="container">
+	<center><h2>Relate Relation Privilege,Role and Table</h2></center>
+
+
+	<form action="/relation_privilegeAndUser_roleAndTableData" method="post">
+		<div class= "select">
+			<label>Relation Privilege: </label>
+
+		<select name = "relationPrivilege">
+			{% for privilege_id in relation_privileges %}
+				<option value="'{{ privilege_id[0] }}'">{{ privilege_id[0] }}</option>
+			{% endfor %}
+		</select>
+	</div>
+		<br>
+		<div class= "select">
+			<label>User Role: </label>
+
+
+		<select name = "userRole">
+			{% for user_role in user_roles %}
+				<option value="'{{ user_role[0] }}'">{{ user_role[0] }}</option>
+			{% endfor %}
+		</select>
+	</div>
+
+		<br>
+		<div class= "select">
+			<label>Table: </label>
+
+
+		<select name = "table">
+			{% for table_id in tables %}
+				<option value="'{{ table_id[0] }}'">{{ table_id[0] }}</option>
+			{% endfor %}
+		</select>
+		</div>
+		<br>
+		<br>
+		<input type="submit" value="Submit">
+	</form>
+	<div class="drops">
+		<div class="drop drop-1"></div>
+		<div class="drop drop-2"></div>
+		<div class="drop drop-3"></div>
+		<div class="drop drop-4"></div>
+		<div class="drop drop-5"></div>
+	  </div></div>
+	  {% if message %}
+	  <div class="message">
+		  <center><h4>{{ message }}</h4></center>
+  
+	  </div>
+	  {% endif %}
+
+	
+{% endblock %}

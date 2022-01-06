@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+{% block styles %}
+{{super()}}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"> 
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/relatedata.css') }}">
+
+
+{% endblock %}
+
+<div class="container">
+	<center><h2>Relate User Account to Role</h2></center>
+
+	<form action="/user_accountAndUser_roleData" method="post">
+        <label>User Id: </label>
+
+		<select name = "userId">
+			{% for userid in user_accounts %}
+				<option class="options" value="'{{ userid[0] }}'">{{ userid[0] }}</option>
+			{% endfor %}
+		</select>
+		<br>
+		<br>
+		<label>User Role: </label>
+
+		<select name = "userRole">
+			{% for user_role in user_roles %}
+				<option value="'{{ user_role[0] }}'">{{ user_role[0] }}</option>
+			{% endfor %}
+		</select>
+
+		<br>
+		<br>
+		<input type="submit" value="Submit">
+	</form>
+	<div class="drops">
+		<div class="drop drop-1"></div>
+		<div class="drop drop-2"></div>
+		<div class="drop drop-3"></div>
+		<div class="drop drop-4"></div>
+		<div class="drop drop-5"></div>
+	  </div></div>
+
+	  {% if message %}
+	  <div class="message">
+		  <center><h4>{{ message }}</h4></center>
+  
+	  </div>
+  
+	  {% endif %}
+	
+{% endblock %}

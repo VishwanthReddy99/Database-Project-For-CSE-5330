@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+{% block styles %}
+{{super()}}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"> 
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/form.css') }}">
+
+
+{% endblock %}
+<div class="container">
+	<form action="/relation_privilegesData" method="post">
+		<input type="text" name="privilegeName" placeholder="Privilege Name:">
+		<br>
+		<input type="text" name="comments" placeholder="Description:">
+		<br>
+		<br>
+		<input type="submit" value="Submit">
+	</form>
+	<div class="drops">
+	  <div class="drop drop-1"></div>
+	  <div class="drop drop-2"></div>
+	  <div class="drop drop-3"></div>
+	  <div class="drop drop-4"></div>
+	  <div class="drop drop-5"></div>
+	</div>
+  </div>
+
+	{% if message %}
+	<div class="message">
+		<center><h4>{{ message }}</h4></center>
+
+	</div>
+
+	{% endif %}
+	<br>
+  	<br>
+
+	
+
+
+	
+{% endblock %}

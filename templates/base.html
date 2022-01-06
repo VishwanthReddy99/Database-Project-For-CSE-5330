@@ -1,0 +1,47 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/base.css') }}">
+
+
+{% endblock %}
+
+{% block title %}
+  {% if title %}{{ title }} - {{ appname }}{% else %}{{ appname }}{% endif %}
+{% endblock %}
+
+{% block navbar %}
+	<nav >
+		<center>
+			<div class="topnav">
+				<a  class="active" href="{{ url_for('index') }}">Home</a>
+				<a  href="{{ url_for('printData') }}">Display</a>
+			</div>
+
+		</center>
+	</nav>
+{% endblock %}
+
+{% block content %}
+	<div >
+	  <div >
+		
+	  </div>
+	</div>
+	<div class="container">
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+			<div class="alert alert-info" role="alert">{{ message }}</div>
+			{% endfor %}
+		{% endif %}
+		{% endwith %}
+		{% block app_content %}
+		{% endblock %}
+	</div>
+{% endblock %}
